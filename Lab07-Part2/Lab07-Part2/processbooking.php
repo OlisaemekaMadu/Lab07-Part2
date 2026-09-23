@@ -10,7 +10,7 @@
 
 <body>
 
-    <header>Rohirrim Tour Booking Confirmation</header>
+    <header><strong>Rohirrim Tour Booking Confirmation</strong></header>
 
 <?php
     function clean_input($data) 
@@ -24,20 +24,24 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
         $firstname = clean_input($_POST["firstname"]);
-        // $lastname = clean_input($_POST["firstname"]);
-        // $age = clean_input($_POST["firstname"]);
+        $lastname = clean_input($_POST["lastname"]);
+        $age = clean_input($_POST["age"]);
 
-        // $species = clean_input($_POST["firstname"]);
-        // $accom = isset($_POST["firstname"]) ? ;
-        // $4day = clean_input($_POST["firstname"]);
+        $species = clean_input($_POST["species"]);
+        $accom = isset($_POST["accom"]) ? $_POST["accom"] : [];
 
-        // $10day = clean_input($_POST["firstname"]);
-        // $food = clean_input($_POST["firstname"]);
-        // $bookday = clean_input($_POST["firstname"]);
-        // $bookday = clean_input($_POST["firstname"]);
+        $food = clean_input($_POST["food"]);
+        $partysize = clean_input($_POST["partysize"]);
     }
 
-    echo "<p><strong>Name: </strong> $firstname</p>";
+    
+    echo "<p>Welcome $firstname $lastname!</p>";
+    echo "<p>You are now booked on the ". implode(" and ", $accom). "</p>";
+    echo "<p>Species: $species</p>";
+    echo "<p>Age: $age</p>";
+    echo "<p>Meal Preference: $food</p>";
+    echo "<p>Number of travellers: $partysize</p>";
+        
 
 
 
